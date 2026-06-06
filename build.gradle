@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
+    alias(libs.plugins.mdg)
     id 'idea'
 }
 
@@ -26,7 +26,7 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
-    version = project.neoforge_version
+    version = libs.versions.neoforge.get()
     runs {
         client {
             client()
@@ -62,7 +62,6 @@ neoForge {
             systemProperty 'stdio.encoding', 'UTF-8'
             systemProperty 'stderr.encoding', 'UTF-8'
             systemProperty 'stdin.encoding', 'UTF-8'
-
 //            logLevel = org.slf4j.event.Level.DEBUG
         }
     }
@@ -94,18 +93,18 @@ repositories {
 }
 
 dependencies {
-    compileOnly "org.projectlombok:lombok:${lombok_version}"
-    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
-    compileOnly "org.jetbrains:annotations:${jetbrains_annotations_version}"
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+    compileOnly libs.jetbrains.annotations
 
-    implementation "com.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
-    interfaceInjectionData "com.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    implementation libs.geckolib
+    interfaceInjectionData libs.geckolib
 }
 
 var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
     var replaceProperties = [
-            minecraft_version      : minecraft_version,
-            neoforge_version       : neoforge_version,
+            minecraft_version      : libs.versions.minecraft.get(),
+            neoforge_version       : libs.versions.neoforge.get(),
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,

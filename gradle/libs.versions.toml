@@ -1,0 +1,19 @@
+[versions]
+moddevgradle = "2.0.141"
+
+minecraft = "26.1.2"
+neoforge = "26.1.2.73"
+
+lombok = "1.18.46"
+jetbrains-annotations = "26.1.0"
+
+geckolib = "5.5.1"
+
+[libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations" }
+
+geckolib = { group = "com.geckolib", name = "geckolib-neoforge-26.1.2", version.ref = "geckolib" }
+
+[plugins]
+mdg = { id = "net.neoforged.moddev", version.ref = "moddevgradle" }
