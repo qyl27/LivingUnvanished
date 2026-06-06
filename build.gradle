@@ -19,16 +19,6 @@ sourceSets.main.resources {
     exclude('src/generated/**/.cache')
 }
 
-repositories {
-    maven {
-        name = 'GeckoLib'
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-        content {
-            includeGroup('software.bernie.geckolib')
-        }
-    }
-}
-
 base {
     archivesName = mod_id
 }
@@ -36,7 +26,7 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
-    version = project.neo_version
+    version = project.neoforge_version
     runs {
         client {
             client()
@@ -88,19 +78,41 @@ configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
 
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'GeckoLib'
+                url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+            }
+        }
+        filter { includeGroupAndSubgroups('com.geckolib') }
+    }
+
+    mavenCentral()
+    mavenLocal()
+}
+
 dependencies {
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    compileOnly "org.jetbrains:annotations:${jetbrains_annotations_version}"
+
+    implementation "com.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    interfaceInjectionData "com.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
 }
 
 var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
     var replaceProperties = [
             minecraft_version      : minecraft_version,
-            minecraft_version_range: minecraft_version_range,
-            neo_version            : neo_version,
+            neoforge_version       : neoforge_version,
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,
             mod_version            : mod_version,
+            minecraft_version_range: minecraft_version_range,
+            neoforge_version_range : neoforge_version_range,
+            geckolib_version_range : geckolib_version_range,
     ]
     inputs.properties replaceProperties
     expand replaceProperties

@@ -20,17 +20,24 @@ config="${mod_id}.mixins.json"
 file="META-INF/accesstransformer.cfg"
 
 [[dependencies.${mod_id}]]
-    modId="neoforge"
-    type="required"
-    versionRange="[${neo_version},)"
-    ordering="NONE"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
     modId="minecraft"
     type="required"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neoforge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="geckolib"
+    type="required"
+    versionRange="${geckolib_version_range}"
+    ordering="AFTER"
     side="BOTH"
 
 #[features.${mod_id}]
