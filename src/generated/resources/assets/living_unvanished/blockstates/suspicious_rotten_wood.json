@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "axis=x,dusted=0": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_0",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,dusted=1": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_1",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,dusted=2": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_2",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,dusted=3": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_3",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,dusted=0": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_0"
+    },
+    "axis=y,dusted=1": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_1"
+    },
+    "axis=y,dusted=2": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_2"
+    },
+    "axis=y,dusted=3": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_3"
+    },
+    "axis=z,dusted=0": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_0",
+      "x": 90
+    },
+    "axis=z,dusted=1": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_1",
+      "x": 90
+    },
+    "axis=z,dusted=2": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_2",
+      "x": 90
+    },
+    "axis=z,dusted=3": {
+      "model": "living_unvanished:block/suspicious_rotten_wood_3",
+      "x": 90
+    }
+  }
+}

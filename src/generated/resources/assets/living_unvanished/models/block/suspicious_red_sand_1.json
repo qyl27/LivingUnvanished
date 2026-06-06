@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "living_unvanished:block/suspicious_red_sand_1"
+  }
+}

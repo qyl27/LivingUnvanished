@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "living_unvanished:block/restoration_table_bottom",
+    "east": "living_unvanished:block/restoration_table_side",
+    "north": "living_unvanished:block/restoration_table_bottom",
+    "particle": "living_unvanished:block/restoration_table_bottom",
+    "south": "living_unvanished:block/restoration_table_front",
+    "up": "living_unvanished:block/restoration_table_top",
+    "west": "living_unvanished:block/restoration_table_side"
+  }
+}

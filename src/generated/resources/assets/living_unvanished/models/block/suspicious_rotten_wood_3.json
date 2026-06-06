@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "living_unvanished:block/suspicious_rotten_wood_top",
+    "side": "living_unvanished:block/suspicious_rotten_wood_3"
+  }
+}
