@@ -2,7 +2,13 @@
   "required": true,
   "package": "dev.yuluo.mc.living_unvanished.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": [],
+  "mixins": [
+    "block.entity.BrushableBlockEntityMixin",
+    "entity.raid.RaiderMixin"
+  ],
+  "client": [
+    "client.gui.GuiMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },

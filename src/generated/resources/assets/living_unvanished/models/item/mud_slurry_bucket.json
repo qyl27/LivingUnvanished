@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "living_unvanished:item/mud_slurry_bucket"
+  }
+}
