@@ -49,7 +49,12 @@ public final class ModCreativeModeTabs {
             event.accept(ModItems.FEMUR);
             event.accept(ModItems.STRANGE_LEATHER);
             event.accept(ModItems.STRIPED_LEATHER);
-            event.accept(ModItems.LEFTOVER_PAGE);
+            event.accept(ModItems.MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_1);
+            event.accept(ModItems.MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_2);
+            event.accept(ModItems.MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_3);
+            event.accept(ModItems.THYLACINE_LEFTOVER_PAGE_1);
+            event.accept(ModItems.THYLACINE_LEFTOVER_PAGE_2);
+            event.accept(ModItems.THYLACINE_LEFTOVER_PAGE_3);
         } else if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept(ModItems.BLUE_PIGEON_SPAWN_EGG);
         }

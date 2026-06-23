@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 public final class ModTags {
     public static final class Items {
         public static final TagKey<Item> BLUE_PIGEON_FOOD = create("mauritius_blue_pigeon_food");
+        public static final TagKey<Item> IDENTIFIABLE = create("identifiable");
 
         private static TagKey<Item> create(String path) {
             return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(LivingUnvanished.MODID, path));

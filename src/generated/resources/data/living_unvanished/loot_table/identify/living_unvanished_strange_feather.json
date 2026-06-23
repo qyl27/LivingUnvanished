@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:feather",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "living_unvanished:blue_contour_feather"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "living_unvanished:orange_contour_feather"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "living_unvanished:identify/living_unvanished_strange_feather"
+}
