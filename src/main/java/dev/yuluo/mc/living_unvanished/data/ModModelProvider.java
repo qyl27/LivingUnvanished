@@ -3,21 +3,28 @@ package dev.yuluo.mc.living_unvanished.data;
 import dev.yuluo.mc.living_unvanished.LivingUnvanished;
 import dev.yuluo.mc.living_unvanished.registry.ModBlocks;
 import dev.yuluo.mc.living_unvanished.registry.ModItems;
+import dev.yuluo.mc.living_unvanished.util.IdHelper;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public final class ModModelProvider extends ModelProvider {
+    private static final Material LEFTOVER_PAGE_TEXTURE = new Material(IdHelper.modLoc("item/leftover_page"));
+
     public ModModelProvider(PackOutput output) {
         super(output, LivingUnvanished.MODID);
     }
@@ -43,7 +50,12 @@ public final class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.STRIPED_LEATHER.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.IDENTIFICATION_MANUAL.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.LEFTOVER_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        generateLeftoverPageItem(itemModels, ModItems.MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_1.get());
+        generateLeftoverPageItem(itemModels, ModItems.MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_2.get());
+        generateLeftoverPageItem(itemModels, ModItems.MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_3.get());
+        generateLeftoverPageItem(itemModels, ModItems.THYLACINE_LEFTOVER_PAGE_1.get());
+        generateLeftoverPageItem(itemModels, ModItems.THYLACINE_LEFTOVER_PAGE_2.get());
+        generateLeftoverPageItem(itemModels, ModItems.THYLACINE_LEFTOVER_PAGE_3.get());
         itemModels.generateFlatItem(ModItems.MEMOIR.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BLUE_PIGEON_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
 
@@ -95,5 +107,14 @@ public final class ModModelProvider extends ModelProvider {
                 .with(BlockModelGenerators.createRotatedPillar())
         );
         blockModels.registerSimpleItemModel(block, ModelLocationUtils.getModelLocation(block, "_0"));
+    }
+
+    private static void generateLeftoverPageItem(ItemModelGenerators itemModels, Item item) {
+        Identifier model = ModelTemplates.FLAT_ITEM.create(
+            ModelLocationUtils.getModelLocation(item),
+            TextureMapping.layer0(LEFTOVER_PAGE_TEXTURE),
+            itemModels.modelOutput
+        );
+        itemModels.itemModelOutput.accept(item, ItemModelUtils.plainModel(model));
     }
 }

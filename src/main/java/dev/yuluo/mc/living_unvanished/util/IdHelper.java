@@ -7,4 +7,8 @@ public class IdHelper {
     public static Identifier modLoc(String path) {
         return Identifier.fromNamespaceAndPath(LivingUnvanished.MODID, path);
     }
+
+    public static String toUnderlinedString(Identifier id) {
+        return id.getNamespace() + "_" + id.getPath().replace("/", "_");
+    }
 }

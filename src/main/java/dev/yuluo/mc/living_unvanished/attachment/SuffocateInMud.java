@@ -16,21 +16,7 @@ public final class SuffocateInMud {
     }
 
     private static void set(LivingEntity entity, int air) {
-        if (air >= entity.getMaxAirSupply()) {
-            entity.removeData(ModAttachmentTypes.SUFFOCATE_IN_MUD.get());
-        } else {
-            entity.setData(ModAttachmentTypes.SUFFOCATE_IN_MUD.get(), air);
-        }
-    }
-
-    private static void decrease(LivingEntity entity) {
-        int airSupply = entity.decreaseAirSupply(get(entity));
-        set(entity, airSupply);
-    }
-
-    private static void increase(LivingEntity entity) {
-        int airSupply = entity.increaseAirSupply(get(entity));
-        set(entity, airSupply);
+        entity.setData(ModAttachmentTypes.SUFFOCATE_IN_MUD.get(), air);
     }
 
     private static boolean isSuffocating(LivingEntity entity) {
@@ -42,18 +28,24 @@ public final class SuffocateInMud {
     }
 
     public static void tick(LivingEntity entity) {
+        var current = get(entity);
+        var newAir = current;
         if (MudSlurryBlock.isEntityInside(entity)) {
-            decrease(entity);
+            newAir = entity.decreaseAirSupply(current);
         } else {
-            increase(entity);
+            newAir = entity.increaseAirSupply(current);
         }
 
         if (isSuffocating(entity)) {
-            set(entity, 0);
+            newAir = 0;
             var level = entity.level();
             if (level instanceof ServerLevel serverLevel) {
                 entity.hurtServer(serverLevel, entity.damageSources().source(ModDamageTypes.SUFFOCATE_IN_MUD), DAMAGE_AMOUNT);
             }
+        }
+
+        if (newAir != current) {
+            set(entity, newAir);
         }
     }
 

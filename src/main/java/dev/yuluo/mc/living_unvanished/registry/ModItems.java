@@ -1,6 +1,8 @@
 package dev.yuluo.mc.living_unvanished.registry;
 
 import dev.yuluo.mc.living_unvanished.LivingUnvanished;
+import dev.yuluo.mc.living_unvanished.item.IdentificationManualItem;
+import dev.yuluo.mc.living_unvanished.item.LeftoverPageItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -49,8 +51,16 @@ public final class ModItems {
     public static final DeferredItem<Item> STRANGE_LEATHER = REGISTRY.registerSimpleItem("strange_leather");
     public static final DeferredItem<Item> STRIPED_LEATHER = REGISTRY.registerSimpleItem("striped_leather");
 
-    public static final DeferredItem<Item> IDENTIFICATION_MANUAL = REGISTRY.registerSimpleItem("identification_manual");
-    public static final DeferredItem<Item> LEFTOVER_PAGE = REGISTRY.registerSimpleItem("leftover_page");
+    public static final DeferredItem<IdentificationManualItem> IDENTIFICATION_MANUAL =
+        REGISTRY.registerItem("identification_manual", IdentificationManualItem::new);
+
+    public static final DeferredItem<LeftoverPageItem> MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_1 = registerLeftoverPage("mauritius_blue_pigeon", 1);
+    public static final DeferredItem<LeftoverPageItem> MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_2 = registerLeftoverPage("mauritius_blue_pigeon", 2);
+    public static final DeferredItem<LeftoverPageItem> MAURITIUS_BLUE_PIGEON_LEFTOVER_PAGE_3 = registerLeftoverPage("mauritius_blue_pigeon", 3);
+    public static final DeferredItem<LeftoverPageItem> THYLACINE_LEFTOVER_PAGE_1 = registerLeftoverPage("thylacine", 1);
+    public static final DeferredItem<LeftoverPageItem> THYLACINE_LEFTOVER_PAGE_2 = registerLeftoverPage("thylacine", 2);
+    public static final DeferredItem<LeftoverPageItem> THYLACINE_LEFTOVER_PAGE_3 = registerLeftoverPage("thylacine", 3);
+
     public static final DeferredItem<Item> MEMOIR = REGISTRY.registerSimpleItem("memoir");
 
     public static final DeferredItem<SpawnEggItem> BLUE_PIGEON_SPAWN_EGG =
@@ -59,4 +69,11 @@ public final class ModItems {
             SpawnEggItem::new,
             properties -> properties.spawnEgg(ModEntityTypes.BLUE_PIGEON.get())
         );
+
+    private static DeferredItem<LeftoverPageItem> registerLeftoverPage(String species, int page) {
+        var id = species + "_leftover_page_" + page;
+        return REGISTRY.registerItem(id,
+            prop -> new LeftoverPageItem(prop, species, + page)
+        );
+    }
 }

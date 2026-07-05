@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 @EventBusSubscriber(modid = LivingUnvanished.MODID)
-public class RegisterRendererListener {
+public final class RegisterRendererListener {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntityTypes.BLUE_PIGEON.get(), BluePigeonRenderer::new);

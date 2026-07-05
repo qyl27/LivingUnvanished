@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone_block",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "living_unvanished:avian_skull"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "living_unvanished:beast_skull"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "living_unvanished:identify/living_unvanished_strange_skull"
+}

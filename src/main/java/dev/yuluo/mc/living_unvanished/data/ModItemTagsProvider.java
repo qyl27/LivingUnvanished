@@ -1,6 +1,7 @@
 package dev.yuluo.mc.living_unvanished.data;
 
 import dev.yuluo.mc.living_unvanished.LivingUnvanished;
+import dev.yuluo.mc.living_unvanished.registry.ModItems;
 import dev.yuluo.mc.living_unvanished.registry.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -18,5 +19,12 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Items.BLUE_PIGEON_FOOD)
             .add(Items.PITCHER_POD);
+        tag(ModTags.Items.IDENTIFIABLE)
+            .add(
+                ModItems.STRANGE_SKULL.get(),
+                ModItems.STRANGE_FEATHER.get(),
+                ModItems.STRANGE_BONES.get(),
+                ModItems.STRANGE_LEATHER.get()
+            );
     }
 }
